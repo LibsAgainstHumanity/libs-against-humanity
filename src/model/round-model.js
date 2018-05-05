@@ -2,23 +2,17 @@
 
 import mongoose from 'mongoose';
 
-export default mongoose.model('game', () => {
+export default mongoose.model('round', () => {
   mongoose.Schema({
-    title: {
-      type: String,
+    number: {
+      type: Number,
       required: true,
       unique: true,
     },
-    users: [
+    scripts: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'user',
-      },
-    ],
-    rounds: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'round',
+        ref: 'script',
       },
     ],
   }, {
